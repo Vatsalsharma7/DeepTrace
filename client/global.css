@@ -1,0 +1,237 @@
+/** @import must precede all other statements */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Tailwind CSS theme
+   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
+   * A different format will require also updating the theme in tailwind.config.ts.
+  */
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --brand: 224 76% 55%;
+    --brand-foreground: 210 40% 98%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 224 76% 45%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --brand: 224 76% 48%;
+    --brand-foreground: 0 0% 100%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    /* Luxe animated background - adapts to theme */
+    background-image:
+      radial-gradient(1200px 600px at 82% -12%, hsl(var(--brand)/0.12), transparent 42%),
+      radial-gradient(900px 500px at -12% 12%, hsl(var(--primary)/0.10), transparent 42%),
+      linear-gradient(120deg, hsl(var(--brand)/0.06), hsl(var(--primary)/0.06), hsl(var(--background)) 60%);
+    background-attachment: fixed, fixed, fixed;
+    background-size: auto, auto, 200% 200%;
+    background-position: center, center, 0% 50%;
+    animation: bg-pan 26s ease-in-out infinite alternate;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Dark mode specific background adjustments */
+  .dark body {
+    background-image:
+      radial-gradient(1200px 600px at 82% -12%, hsl(var(--brand)/0.08), transparent 42%),
+      radial-gradient(900px 500px at -12% 12%, hsl(var(--primary)/0.06), transparent 42%),
+      linear-gradient(120deg, hsl(var(--brand)/0.04), hsl(var(--primary)/0.04), hsl(var(--background)) 60%);
+  }
+
+  /* Floating glow accents */
+  body::before, body::after {
+    content: "";
+    position: fixed;
+    inset: -10% -10% auto -10%;
+    height: 50vh;
+    pointer-events: none;
+    z-index: -1;
+    filter: blur(24px) saturate(120%);
+    transition: opacity 0.3s ease;
+  }
+  body::before {
+    background: radial-gradient(380px 200px at 85% 10%, hsl(var(--brand)/0.16), transparent 50%);
+    animation: blob-bob 18s ease-in-out infinite alternate;
+  }
+  body::after {
+    background:
+      radial-gradient(360px 180px at 10% 20%, hsl(var(--primary)/0.14), transparent 50%),
+      radial-gradient(200px 120px at 40% -20%, hsl(var(--foreground)/0.06), transparent 60%);
+    animation: blob-bob 22s ease-in-out infinite alternate-reverse;
+  }
+
+  /* Dark mode glow adjustments */
+  .dark body::before {
+    background: radial-gradient(380px 200px at 85% 10%, hsl(var(--brand)/0.08), transparent 50%);
+  }
+  .dark body::after {
+    background:
+      radial-gradient(360px 180px at 10% 20%, hsl(var(--primary)/0.06), transparent 50%),
+      radial-gradient(200px 120px at 40% -20%, hsl(var(--foreground)/0.03), transparent 60%);
+  }
+
+  /* Premium scrollbars */
+  *::-webkit-scrollbar {
+    width: 10px; height: 10px;
+  }
+  *::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, hsl(var(--primary)/0.4), hsl(var(--brand)/0.4));
+    border-radius: 9999px;
+    border: 2px solid hsl(var(--background));
+  }
+  *::-webkit-scrollbar-track { background: transparent; }
+
+  ::selection {
+    background: hsl(var(--brand)/0.18);
+  }
+  }
+
+@layer components {
+  .glass {
+    background: color-mix(in oklab, white 85%, transparent);
+    background: hsl(var(--card)/0.72);
+    backdrop-filter: saturate(120%) blur(8px);
+    -webkit-backdrop-filter: saturate(120%) blur(8px);
+    box-shadow: 0 4px 12px hsl(var(--foreground)/0.04), 0 1px 0 hsl(var(--foreground)/0.04) inset;
+  }
+  .elev {
+    box-shadow:
+      0 1px 1px hsl(var(--foreground)/0.04),
+      0 4px 12px hsl(var(--foreground)/0.05),
+      0 8px 24px hsl(var(--foreground)/0.04);
+  }
+
+  @keyframes float-in {
+    from { opacity: 0; transform: translateY(8px) scale(0.98); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .anim-in { animation: float-in 420ms cubic-bezier(.2,.7,.2,1) both; }
+
+  @keyframes bg-pan {
+    0% { background-position: center, center, 0% 50%; }
+    100% { background-position: center, center, 100% 50%; }
+  }
+  @keyframes blob-bob {
+    0% { transform: translateY(-10px); }
+    100% { transform: translateY(10px); }
+  }
+
+  /* Global premium transitions */
+  .hover-lift { transition: transform 240ms cubic-bezier(.2,.7,.2,1), box-shadow 240ms; }
+  .hover-lift:hover { transform: translateY(-2px); box-shadow: 0 6px 16px hsl(var(--foreground)/0.05); }
+
+  /* App-wide surface and card helpers */
+  .surface { @apply glass elev rounded-xl border; }
+  .card-smooth { @apply rounded-xl border bg-card shadow-sm; }
+
+  /* Inputs & buttons polish */
+  input, textarea, select {
+    transition: background-color 180ms, box-shadow 180ms, border-color 180ms, transform 120ms;
+    backdrop-filter: saturate(120%);
+  }
+  input:focus, textarea:focus, select:focus {
+    box-shadow: 0 0 0 4px hsl(var(--brand)/0.18);
+    border-color: hsl(var(--brand));
+  }
+  button {
+    transition: transform 120ms cubic-bezier(.2,.7,.2,1), box-shadow 180ms, background-color 180ms, color 180ms;
+  }
+  button:active { transform: translateY(1px) scale(0.98); }
+  .btn-glass { @apply glass elev border border-white/40; }
+  .btn-primary-grad { @apply text-primary-foreground; background-image: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--brand)) 100%); }
+  .input-glass { @apply glass elev border border-white/40; }
+}
