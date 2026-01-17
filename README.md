@@ -1,6 +1,6 @@
 # 🔍 DeepTrace - Advanced Digital Forensic Investigation Platform
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 [![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
 [![React](https://img.shields.io/badge/React-18+-blue.svg)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5+-blue.svg)](https://www.typescriptlang.org/)
@@ -46,7 +46,7 @@
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/Nezeon/DeepTrace.git
+   git clone https://github.com/Vatsalsharma7/DeepTrace.git
    cd DeepTrace
    ```
 
@@ -246,9 +246,6 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 - **Prettier**: Consistent code formatting
 - **Conventional Commits**: Standardized commit messages
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
@@ -259,12 +256,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Framer Motion**: For the smooth animations
 - **Radix UI**: For the accessible component primitives
 
-## 📞 Support
-
-- **Documentation**: [Wiki](https://github.com/Nezeon/DeepTrace/wiki)
-- **Issues**: [GitHub Issues](https://github.com/Nezeon/DeepTrace/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/Nezeon/DeepTrace/discussions)
-- **Email**: support@forensiq.com
 
 ---
 
@@ -272,6 +263,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Built with ❤️ for the digital forensics community**
 
-[⭐ Star this repo](https://github.com/Nezeon/DeepTrace) • [🐛 Report Bug](https://github.com/Nezeon/DeepTrace/issues) • [💡 Request Feature](https://github.com/Nezeon/DeepTrace/issues)
+[⭐ Star this repo](https://github.com/VatsalSharma7/DeepTrace) • [🐛 Report Bug](https://github.com/Vatsalsharma7/DeepTrace/issues) • [💡 Request Feature](https://github.com/Vatsalsharma7/DeepTrace/issues)
 
 </div>
