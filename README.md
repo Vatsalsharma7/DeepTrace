@@ -229,7 +229,6 @@ docker run -p 5000:5000 forensiq
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
 
 ### **Development Workflow**
 
